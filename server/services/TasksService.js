@@ -3,6 +3,26 @@ import { BadRequest } from "../utils/Errors"
 
 
 class TasksService {
+    async deleteComment(id, commentId) {
+        return await dbContext.Tasks.findByIdAndUpdate(
+            { _id: id, "comments._id": commentId },
+            { $pull: { comments: { _id: commentId } } },
+            { new: true }
+        )
+    }
+    async editComment(id, commentId, body) {
+        return await dbContext.Tasks.updateOne(
+            { _id: id, "comments._id": commentId },
+            { $set: { comments: body } },
+            { new: true }
+        )
+    }
+    async addComment(id, body) {
+        return await dbContext.Tasks.findByIdAndUpdate(
+            { _id: id },
+            { $addToSet: { comments: body } },
+            { new: true })
+    }
 
     async find(query = {}) {
         let tasks = await dbContext.Tasks.find(query)

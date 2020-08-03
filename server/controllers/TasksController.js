@@ -13,10 +13,34 @@ export class TasksController extends BaseController {
             .get('', this.getAll)
             .get('/:id', this.getById)
             .post('', this.create)
+            .post('/:id/comments', this.addComment)
+            .put('/:id/comments/:commentId', this.editComment)
             .put('/:id', this.edit)
+            .delete('/:id/comments/:commentId', this.deleteComment)
             .delete('/:id', this.delete)
     }
 
+    async deleteComment(req, res, next) {
+        try {
+            let deletedComment = await tasksService.deleteComment(req.params.id, req.params.commentId)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async editComment(req, res, next) {
+        try {
+            res.send({ data: await tasksService.editComment(req.params.id, req.params.commentId, req.body), message: "edited comment" })
+        } catch (error) {
+            next(error)
+        }
+    }
+    async addComment(req, res, next) {
+        try {
+            let comment = await tasksService.addComment(req.params.id, req.body)
+        } catch (error) {
+            next(error)
+        }
+    }
 
     async getAll(req, res, next) {
         try {
