@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store"
 import { Auth0Plugin } from "@bcwdev/auth0-vue";
 import { domain, clientId, audience } from "./authConfig";
 

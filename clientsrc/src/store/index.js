@@ -1,24 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Axios from 'axios'
+import api from "../services/AxiosService"
 import router from '../router/index'
 import { STATES } from "mongoose"
+import ListModule from "./ListModule"
 
 Vue.use(Vuex)
 
-//Allows axios to work locally or live
-let base = window.location.host.includes('localhost') ? '//localhost:3000/' : '/'
 
-let api = Axios.create({
-  baseURL: base + "api/",
-  timeout: 3000,
-  withCredentials: true
-})
+
 
 export default new Vuex.Store({
   state: {
     user: {},
     boards: [],
+    lists: {},
     activeBoard: {}
   },
   mutations: {
@@ -30,6 +26,9 @@ export default new Vuex.Store({
     },
     setActiveBoard(state, activeBoard) {
       state.activeBoard = activeBoard
+    },
+    setList(state, lists) {
+      state.lists = lists
     }
   },
   actions: {
@@ -91,5 +90,8 @@ export default new Vuex.Store({
 
 
     //#endregion
+  },
+  modules: {
+    ListModule
   }
 })
