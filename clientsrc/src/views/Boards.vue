@@ -13,12 +13,17 @@
     </div>
     <div class="row p-2">
       <div v-for="board in boards" :key="board.id">
+        <i class="fa fa-trash-o text-danger" @click="deleteBoard(board.id)" aria-hidden="true"></i>
         <router-link :to="{name: 'board', params: {boardId: board.id}}">
           <h1>
-            <div class="card text-white bg-dark shadow-lg mb-3 mx-2 p-2" style="max-width: 20rem;">
+            <div
+              class="card text-white bg-dark border rounded shadow-lg mb-3 mx-2 p-2"
+              style="max-width: 20rem;"
+            >
               <div class="card-header">{{board.title}}</div>
               <div class="card-body">
                 <p class="card-text">{{board.description}}</p>
+                <!-- need to turn this into a delete button -->
               </div>
             </div>
           </h1>
@@ -52,6 +57,15 @@ export default {
       this.$store.dispatch("addBoard", this.newBoard);
       this.newBoard = { title: "", description: "" };
     },
+    deleteBoard(id) {
+      this.$store.dispatch("deleteBoard", id);
+    },
   },
 };
 </script>
+
+<style>
+.cursor {
+  cursor: pointer;
+}
+</style>

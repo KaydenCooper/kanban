@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from '../router/index'
+import { STATES } from "mongoose"
 
 Vue.use(Vuex)
 
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     setBoards(state, boards) {
       state.boards = boards
+    },
+    setActiveBoard(state, activeBoard) {
+      state.activeBoard = activeBoard
     }
   },
   actions: {
@@ -59,6 +63,16 @@ export default new Vuex.Store({
         .then(serverBoard => {
           dispatch('getBoards')
         })
+    },
+    async deleteBoard({ commit, dispatch }, boardData) {
+      try {
+        let res = await api.delete("boards/" + boardData)
+        console.log(res);
+        commit("setActiveBoard", {})
+        dispatch("getBoards")
+      } catch (error) {
+        console.error(error)
+      }
     }
     //#endregion
 
