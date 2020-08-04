@@ -22,7 +22,7 @@ export class TasksController extends BaseController {
 
     async deleteComment(req, res, next) {
         try {
-            let deletedComment = await tasksService.deleteComment(req.params.id, req.params.commentId)
+            res.send({ data: await tasksService.deleteComment(req.params.id, req.params.commentId), message: "deleted comment" })
         } catch (error) {
             next(error)
         }
@@ -36,7 +36,7 @@ export class TasksController extends BaseController {
     }
     async addComment(req, res, next) {
         try {
-            let comment = await tasksService.addComment(req.params.id, req.body)
+            res.send({ data: await tasksService.addComment(req.params.id, req.body) })
         } catch (error) {
             next(error)
         }

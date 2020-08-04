@@ -6,7 +6,10 @@ let ObjectId = Schema.Types.ObjectId
 const commentSchema = new Schema({
     comment: { type: String, required: true },
     creatorEmail: { type: String, required: true }
-})
+},
+    {
+        timestamps: true, toJSON: { virtuals: true }
+    })
 
 
 const Task = new Schema({
