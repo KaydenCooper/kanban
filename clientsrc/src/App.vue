@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="container-fluid d-flex flex-column" id="app">
     <navbar />
     <router-view />
   </div>
@@ -37,6 +37,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
 }
 
 #nav {

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="row navbar navbar-expand-lg navbar-light bg-dark">
     <router-link class="navbar-brand text-light" :to="{ name: 'home' }">Kanban</router-link>
     <button
       class="navbar-toggler"
