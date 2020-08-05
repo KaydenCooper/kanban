@@ -1,5 +1,5 @@
 <template>
-  <div class="lists col-3 px-1">
+  <div class="lists col-3 px-1 d-inline-block">
     <div class="card p-2 m-2">
       <h3>{{listData.title}}</h3>
       <div class="input-group mb-3">

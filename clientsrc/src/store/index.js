@@ -34,7 +34,7 @@ export default new Vuex.Store({
     },
     setTasks(state, payload) {
       Vue.set(state.tasks, payload.listId, payload.tasks)
-    }
+    },
   },
   actions: {
     //#region -- AUTH STUFF --

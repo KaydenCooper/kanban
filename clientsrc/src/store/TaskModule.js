@@ -20,7 +20,25 @@ export default {
             } catch (error) {
                 console.error(error);
             }
-        }
+        },
+        async deleteTask({ commit, dispatch }, taskData) {
+            try {
+                let res = await api.delete("tasks/" + taskData.id)
+                dispatch("getTasks", taskData.listId)
+            } catch (error) {
+                console.error(error)
+            }
+        },
+        async addComment({ commit, dispatch }, commentData) {
+            try {
+                debugger
+                let res = await api.post("tasks/" + commentData.taskId + "/comments", commentData)
+                dispatch("getTasks", commentData.listId)
+            } catch (error) {
+                console.error(error)
+            }
+        },
+
 
 
     }

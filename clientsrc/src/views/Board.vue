@@ -23,7 +23,7 @@
       <!-- <h1 v-else>Loading...</h1> -->
     </div>
     <div class="col-12 flex-grow-1">
-      <div class="row bg-primary text-primary justify-content-center p-1">
+      <div class="row bg-primary text-primary p-1 overflow">
         <lists v-for="list in lists" :listData="list" :key="list.id" />
       </div>
     </div>
@@ -73,7 +73,9 @@ export default {
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.175) !important;
 }
 .overflow {
-  overflow-x: scroll;
-  white-space: nowrap;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+.scroll {
 }
 </style>

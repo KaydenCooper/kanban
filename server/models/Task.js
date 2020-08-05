@@ -4,7 +4,7 @@ let ObjectId = Schema.Types.ObjectId
 
 
 const commentSchema = new Schema({
-    comment: { type: String, required: true },
+    description: { type: String, required: true },
     creatorEmail: { type: String, required: true }
 },
     {

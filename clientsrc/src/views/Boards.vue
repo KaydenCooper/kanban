@@ -12,20 +12,27 @@
     <div class="col-12">
       <div class="row p-2">
         <div v-for="board in boards" :key="board.id">
-          <i class="fa fa-trash-o text-danger" @click="deleteBoard(board.id)" aria-hidden="true"></i>
-          <router-link :to="{name: 'board', params: {boardId: board.id}}">
-            <h1>
-              <div
-                class="card text-white bg-dark border rounded shadow-lg mb-3 mx-2 p-2"
-                style="max-width: 20rem;"
+          <h1>
+            <div
+              class="card text-white bg-dark border rounded shadow-lg mb-3 mx-2 p-2"
+              style="max-width: 20rem;"
+            >
+              <button
+                type="button"
+                class="close text-right text-danger cursor"
+                @click="deleteBoard(board.id)"
+                aria-label="Close"
               >
-                <div class="card-header">{{board.title}}</div>
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <router-link :to="{name: 'board', params: {boardId: board.id}}">
+                <div class="card-header text-light">{{board.title}}</div>
                 <div class="card-body">
-                  <p class="card-text">{{board.description}}</p>
+                  <p class="card-text text-light">{{board.description}}</p>
                 </div>
-              </div>
-            </h1>
-          </router-link>
+              </router-link>
+            </div>
+          </h1>
         </div>
       </div>
     </div>
@@ -66,5 +73,8 @@ export default {
 <style>
 .cursor {
   cursor: pointer;
+}
+.close {
+  font-size: 2.3125rem;
 }
 </style>
