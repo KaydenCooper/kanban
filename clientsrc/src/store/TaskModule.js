@@ -31,14 +31,22 @@ export default {
         },
         async addComment({ commit, dispatch }, commentData) {
             try {
-                debugger
+
                 let res = await api.post("tasks/" + commentData.taskId + "/comments", commentData)
                 dispatch("getTasks", commentData.listId)
             } catch (error) {
                 console.error(error)
             }
         },
-
+        async deleteComment({ commit, dispatch }, commentedData) {
+            try {
+                debugger
+                let res = await api.delete("tasks/" + commentedData.taskId + "/comments/" + commentedData.id.id)
+                dispatch("getTasks", commentedData.taskId)
+            } catch (error) {
+                console.error(error)
+            }
+        }
 
 
     }

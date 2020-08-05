@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-modal">
+  <div class="comment-modal row">
     <div class="modal" :id="'quickModal' + taskProp.id" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content bg-secondary text-light">
@@ -13,7 +13,7 @@
               />
               <button
                 type="button"
-                class="btn btn-success py-0 btn-block"
+                class="btn btn-primary py-0 btn-block"
                 @click="addComment()"
               >Submit</button>
               <h5 class="p-2">
@@ -22,12 +22,13 @@
               <Comments
                 v-for="comment in taskProp.comments"
                 :commentedData="comment"
+                :taskId="taskProp.id"
                 :key="comment.id"
               />
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger py-1" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-danger py-1" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>

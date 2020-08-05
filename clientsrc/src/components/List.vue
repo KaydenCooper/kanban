@@ -19,7 +19,7 @@
       </div>
       <tasks v-for="task in tasks" :taskData="task" :key="task.id" />
       <button
-        class="btn btn-danger m-1 shadow-lg"
+        class="btn btn-outline-danger m-1 shadow-lg py-1"
         type="button"
         @click="deleteList(listData.id)"
       >delete</button>

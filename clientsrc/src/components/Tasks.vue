@@ -13,7 +13,7 @@
         <h4>{{taskData.description}}</h4>
         <button
           type="button"
-          class="btn btn-info py-0"
+          class="btn btn-dark py-0"
           data-toggle="modal"
           :data-target="'#quickModal' + taskData.id"
         >Comments</button>
