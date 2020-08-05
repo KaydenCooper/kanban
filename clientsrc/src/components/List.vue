@@ -58,7 +58,7 @@ export default {
       this.newTask = {};
     },
     deleteList(id) {
-      this.$store.dispatch("deleteList", id);
+      this.$store.dispatch("deleteList", this.listData);
     },
   },
   components: {

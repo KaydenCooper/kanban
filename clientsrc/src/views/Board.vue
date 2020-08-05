@@ -72,4 +72,8 @@ export default {
 .shadow-lg {
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.175) !important;
 }
+.overflow {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
 </style>
