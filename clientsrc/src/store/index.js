@@ -4,6 +4,7 @@ import api from "../services/AxiosService"
 import router from '../router/index'
 import { STATES } from "mongoose"
 import ListModule from "./ListModule"
+import TaskModule from "./TaskModule"
 
 Vue.use(Vuex)
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     user: {},
     boards: [],
     lists: {},
+    tasks: {},
     activeBoard: {}
   },
   mutations: {
@@ -29,6 +31,9 @@ export default new Vuex.Store({
     },
     setList(state, lists) {
       state.lists = lists
+    },
+    setTasks(state, payload) {
+      Vue.set(state.tasks, payload.listId, payload.tasks)
     }
   },
   actions: {
@@ -92,6 +97,8 @@ export default new Vuex.Store({
     //#endregion
   },
   modules: {
-    ListModule
+    ListModule,
+    TaskModule
+
   }
 })

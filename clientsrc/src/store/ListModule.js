@@ -26,10 +26,10 @@ export default {
                 console.error(error);
             }
         },
-        async deleteList({ commit, dispatch }, listId) {
+        async deleteList({ commit, dispatch }, id) {
             try {
-                let res = await api.delete("lists/" + listId)
-
+                let res = await api.delete("lists/" + id)
+                dispatch("getList")
             } catch (error) {
                 console.error(error);
             }
