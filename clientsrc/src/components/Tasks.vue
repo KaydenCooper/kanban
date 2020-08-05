@@ -15,7 +15,7 @@
           type="button"
           class="btn btn-info py-0"
           data-toggle="modal"
-          data-target="#commentModal"
+          :data-target="'#quickModal' + taskData.id"
         >Comments</button>
         <commentModal :taskProp="taskData" />
       </div>

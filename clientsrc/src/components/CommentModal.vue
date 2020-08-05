@@ -1,6 +1,6 @@
 <template>
   <div class="comment-modal">
-    <div class="modal" id="commentModal" tabindex="-1" role="dialog">
+    <div class="modal" :id="'quickModal' + taskProp.id" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content bg-secondary text-light">
           <div class="modal-body">
