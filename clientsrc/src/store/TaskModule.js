@@ -46,6 +46,25 @@ export default {
             } catch (error) {
                 console.error(error)
             }
+        },
+        setTaskToMove({ commit, dispatch }, data) {
+            try {
+                commit("setTaskToMove", data)
+
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        moveTask({ commit, dispatch }, moveData) {
+            try {
+                moveData.taskToMove.listId = moveData.newListId
+                console.log(moveData);
+                let res = api.put("tasks/" + moveData.taskToMove.id, moveData.taskToMove)
+                dispatch("getTasks", moveData.newListId)
+                dispatch("getTasks", moveData.oldListId)
+            } catch (error) {
+                console.error(error);
+            }
         }
 
 

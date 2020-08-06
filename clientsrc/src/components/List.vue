@@ -1,6 +1,11 @@
 <template>
-  <div class="lists col-3 px-1 d-inline-block">
-    <div class="card p-2 m-2">
+  <div
+    class="lists col-3 px-1 d-inline-block"
+    dropzone="zone"
+    @dragover.prevent
+    @drop.prevent="moveTask()"
+  >
+    <div class="card border rounded p-2 m-2">
       <h3>{{listData.title}}</h3>
       <div class="input-group mb-3">
         <input
@@ -17,7 +22,14 @@
           >Add</button>
         </div>
       </div>
-      <tasks v-for="task in tasks" :taskData="task" :key="task.id" />
+      <tasks
+        v-for="(task,index) in tasks"
+        :taskData="task"
+        :key="task.id"
+        draggable="true"
+        :listId="listData.id"
+        @dragstart="reorderTask(task,index)"
+      />
       <button
         class="btn btn-outline-danger m-1 shadow-lg py-1"
         type="button"
@@ -48,6 +60,9 @@ export default {
     tasks() {
       return this.$store.state.tasks[this.listData.id];
     },
+    tempTask() {
+      return this.$store.state.tempTask;
+    },
   },
   methods: {
     addTask(id) {
@@ -59,6 +74,20 @@ export default {
     },
     deleteList(id) {
       this.$store.dispatch("deleteList", this.listData);
+    },
+    moveTask() {
+      let moveData = {
+        newListId: this.listData.id,
+        oldListId: this.tempTask.oldList.id,
+        taskToMove: this.tempTask.task,
+      };
+      this.$store.dispatch("moveTask", moveData);
+    },
+    reorderTask(task, index) {
+      this.$store.dispatch("setTaskToMove", {
+        task: task,
+        oldList: this.listData,
+      });
     },
   },
   components: {

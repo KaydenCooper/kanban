@@ -36,6 +36,7 @@
         </div>
       </div>
     </div>
+    <footer class="bg-dark text-light fixed-bottom p-3">Created By: Harrison Wheeler & Kayden Cooper</footer>
   </div>
 </template>
 

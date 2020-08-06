@@ -1,12 +1,13 @@
 <template>
   <div class="home container-fluid flex-column flex-grow-1 justify-content-center bg-image">
     <div class="row justify-content-center">
-      <div class="col-6 card bg-dark shadow-lg m-2 p-2">
+      <div class="col-6 card border rounded bg-primary shadow-lg m-2 p-2">
         <h1 class="text-light">Welcome to Harry & Kayden's KanBan Boards</h1>
         <hr />
         <h4 class="text-light">PLEASE LOG IN TO CREATE YOUR VERY OWN TRELLO BOARD</h4>
       </div>
     </div>
+    <footer class="bg-dark text-light fixed-bottom p-3">Created By: Harrison Wheeler & Kayden Cooper</footer>
   </div>
 </template>
 
@@ -32,5 +33,11 @@ export default {
   background-position: center;
   width: 100vw;
   margin-left: -15px;
+}
+.bg-primary {
+  background-color: #1a1a1a7a !important;
+}
+.shadow-lg {
+  box-shadow: 0 2rem 3rem 1rem rgba(0, 0, 0, 0.175) !important;
 }
 </style>

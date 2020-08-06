@@ -1,5 +1,5 @@
 <template>
-  <div class="tasks row">
+  <div class="tasks row" @dragstart="moveTask()">
     <div class="col-12">
       <div class="card m-1 shadow-lg p-2 border rounded">
         <button
@@ -37,6 +37,9 @@ export default {
   methods: {
     deleteTask(id) {
       this.$store.dispatch("deleteTask", this.taskData);
+    },
+    moveTask() {
+      this.$emit("dragstart");
     },
   },
   components: {

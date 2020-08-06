@@ -17,7 +17,8 @@ export default new Vuex.Store({
     boards: [],
     lists: {},
     tasks: {},
-    activeBoard: {}
+    activeBoard: {},
+    tempTask: {}
   },
   mutations: {
     setUser(state, user) {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     setTasks(state, payload) {
       Vue.set(state.tasks, payload.listId, payload.tasks)
+    },
+    setTaskToMove(state, taskData) {
+      state.tempTask = taskData
     },
   },
   actions: {
