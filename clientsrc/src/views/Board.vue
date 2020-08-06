@@ -1,29 +1,31 @@
 <template>
-  <div class="board flex-column flex-grow-1 bg-primary row justify-content-center p-2">
-    <div class="col-12 bg-secondary p-2">
+  <div class="board flex-column flex-grow-1 bg-dark row justify-content-center bg-image">
+    <div class="col-12 bg-secondary p-4">
       <h1 v-if="board.title">
         <u>{{board.title}}</u>
       </h1>
       <h1>{{board.description}}</h1>
-      <div class="input-group mb-3">
-        <input
-          v-model="newList.title"
-          type="text"
-          class="form-control border primary shadow-lg"
-          placeholder="Add List..."
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-primary shadow-lg border rounded"
-            type="button"
-            @click="addList(board.id)"
-          >Add</button>
+      <form @submit.prevent="addlist(board.id)">
+        <div class="input-group mb-3">
+          <input
+            v-model="newList.title"
+            type="text"
+            class="form-control border primary shadow-lg"
+            placeholder="Add List..."
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-dark shadow-lg border rounded"
+              type="submit"
+              @click="addList(board.id)"
+            >Add</button>
+          </div>
         </div>
-      </div>
+      </form>
       <!-- <h1 v-else>Loading...</h1> -->
     </div>
     <div class="col-12 flex-grow-1">
-      <div class="row bg-primary text-primary p-1 overflow">
+      <div class="row text-primary p-1 overflow" style="height:65vh;">
         <lists v-for="list in lists" :listData="list" :key="list.id" />
       </div>
     </div>
@@ -75,7 +77,5 @@ export default {
 .overflow {
   overflow-x: auto;
   flex-wrap: nowrap;
-}
-.scroll {
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="home container-fluid flex-column flex-grow-1 justify-content-center bg-image">
     <div class="row justify-content-center">
-      <div class="col-6 card border rounded bg-primary shadow-lg m-2 p-2">
-        <h1 class="text-light">Welcome to Harry & Kayden's KanBan Boards</h1>
+      <div class="col-6 card rounded bg-primary shadow-lg m-2 p-2">
+        <h1 class="text-light pt-3">Kanban</h1>
         <hr />
         <h4 class="text-light">PLEASE LOG IN TO CREATE YOUR VERY OWN TRELLO BOARD</h4>
       </div>

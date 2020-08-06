@@ -5,24 +5,27 @@
     @dragover.prevent
     @drop.prevent="moveTask()"
   >
-    <div class="card border rounded p-2 m-2">
+    <div class="card border rounded p-2 m-2 mb-5">
       <h3>{{listData.title}}</h3>
-      <div class="input-group mb-3">
-        <input
-          v-model="newTask.description"
-          type="text"
-          class="form-control border primary shadow-lg"
-          placeholder="Add Task...."
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-primary shadow-lg border rounded"
-            type="button"
-            @click="addTask(listData.id)"
-          >Add</button>
+      <form @submit.prevent="addTask(listData.id)">
+        <div class="input-group mb-3">
+          <input
+            v-model="newTask.description"
+            type="text"
+            class="form-control border primary shadow-lg"
+            placeholder="Add Task...."
+          />
+          <div class="input-group-append pb-4">
+            <button
+              class="btn btn-dark shadow-lg border rounded"
+              type="button"
+              @click="addTask(listData.id)"
+            >Add</button>
+          </div>
         </div>
-      </div>
+      </form>
       <tasks
+        class
         v-for="(task,index) in tasks"
         :taskData="task"
         :key="task.id"
@@ -98,4 +101,12 @@ export default {
 
 
 <style scoped>
+.bg-image {
+  background-image: url("https://format-com-cld-res.cloudinary.com/image/private/s--7deqf97A--/c_limit,g_center,h_65535,w_2500/fl_keep_iptc.progressive,q_95/v1/90f977a493f4f27c80949284ee718157/bw_crested_butte_mts_no_cropping.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  margin-left: -15px;
+}
 </style>

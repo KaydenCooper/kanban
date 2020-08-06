@@ -5,17 +5,19 @@
         <div class="modal-content bg-secondary text-light">
           <div class="modal-body">
             <div class="form-group">
-              <input
-                v-model="newComment.description"
-                type="text"
-                class="form-control text-wrap"
-                placeholder="Add Comment..."
-              />
-              <button
-                type="button"
-                class="btn btn-primary py-0 btn-block"
-                @click="addComment()"
-              >Submit</button>
+              <form @submit.prevent="addComment()">
+                <input
+                  v-model="newComment.description"
+                  type="text"
+                  class="form-control text-wrap"
+                  placeholder="Add Comment..."
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary py-0 btn-block"
+                  @click="addComment()"
+                >Submit</button>
+              </form>
               <h5 class="p-2">
                 <u>Comments:</u>
               </h5>
