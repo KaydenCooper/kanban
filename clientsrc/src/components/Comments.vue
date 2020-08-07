@@ -8,7 +8,11 @@
     >
       <span aria-hidden="true">&times;</span>
     </button>
-    <p>{{commentedData.description}}</p>
+    <p>
+      <img :src="user.picture" class="img-fluid border rounded" width="35vw" alt />
+      -
+      {{commentedData.description}}
+    </p>
     <hr />
   </div>
 </template>
@@ -21,7 +25,11 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
   methods: {
     deleteComment() {
       this.$store.dispatch("deleteComment", {

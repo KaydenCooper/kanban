@@ -1,6 +1,6 @@
 <template>
-  <div class="board flex-column flex-grow-1 bg-dark row justify-content-center bg-image">
-    <div class="col-12 bg-secondary p-4">
+  <div class="board flex-column flex-grow-1 row justify-content-center bg-image">
+    <div class="col-12 bg-extra-light p-4">
       <h1 v-if="board.title">
         <u>{{board.title}}</u>
       </h1>
@@ -15,7 +15,7 @@
           />
           <div class="input-group-append">
             <button
-              class="btn btn-dark shadow-lg border rounded"
+              class="btn bg-transparent text-light shadow-lg"
               type="submit"
               @click="addList(board.id)"
             >Add</button>
@@ -25,7 +25,7 @@
       <!-- <h1 v-else>Loading...</h1> -->
     </div>
     <div class="col-12 flex-grow-1">
-      <div class="row text-primary p-1 overflow" style="height:65vh;">
+      <div class="row text-primary p-1 overflow" style="height:70vh;">
         <lists v-for="list in lists" :listData="list" :key="list.id" />
       </div>
     </div>
@@ -77,5 +77,18 @@ export default {
 .overflow {
   overflow-x: auto;
   flex-wrap: nowrap;
+}
+
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
+}
+/* .bg-light {
+  background-color: rgba(255, 255, 255, 0.596) !important;
+  backdrop-filter: blur(5px);
+} */
+.bg-extra-light {
+  background-color: rgba(255, 255, 255, 0.192) !important;
+  backdrop-filter: blur(5px);
 }
 </style>

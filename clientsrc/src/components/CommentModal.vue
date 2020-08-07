@@ -14,7 +14,7 @@
                 />
                 <button
                   type="button"
-                  class="btn btn-primary py-0 btn-block"
+                  class="btn text-light py-0 btn-block bg-transparent"
                   @click="addComment()"
                 >Submit</button>
               </form>

@@ -17,29 +17,27 @@
       </form>
     </div>
     <div class="col-12 pt-2">
-      <div class="row p-2">
+      <div class="row p-2 justify-content-center">
         <div v-for="board in boards" :key="board.id">
-          <h1>
-            <div class="card bg-transparent shadow-lg mb-3 mx-2 p-1" style="max-width: 20rem;">
-              <div class="card text-primary m-1 px-4 pt-4 pb-1">
-                <router-link :to="{name: 'board', params: {boardId: board.id}}">
-                  <div class="card-body py-0">
-                    <div class="text-primary">
-                      <h1 class="mx-3 pb-4">
-                        <u>{{board.title}}</u>
-                      </h1>
-                    </div>
+          <div class="card bg-transparent shadow-lg mb-3 mx-2 p-1" style="min-width: 15rem;">
+            <div class="card text-primary m-1 px-4 pt-4 pb-1" style="min-height: 10rem;">
+              <router-link :to="{name: 'board', params: {boardId: board.id}}">
+                <div class="card-body py-0">
+                  <div class="text-primary">
+                    <h1 class="pb-4">
+                      <u>{{board.title}}</u>
+                    </h1>
                   </div>
-                </router-link>
-                <button
-                  type="button"
-                  class="cursor btn btn-outline-danger py-0"
-                  @click="deleteBoard(board.id)"
-                  aria-label="Close"
-                >Delete</button>
-              </div>
+                </div>
+              </router-link>
+              <button
+                type="button"
+                class="cursor btn btn-outline-danger py-0"
+                @click="deleteBoard(board.id)"
+                aria-label="Close"
+              >Delete</button>
             </div>
-          </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -96,5 +94,6 @@ export default {
 }
 .bg-transparent {
   background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
 }
 </style>

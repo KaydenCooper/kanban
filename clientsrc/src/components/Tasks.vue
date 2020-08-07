@@ -1,7 +1,7 @@
 <template>
   <div class="tasks row" @dragstart="moveTask()">
     <div class="col-12">
-      <div class="card m-1 shadow-lg p-2 border rounded">
+      <div class="card m-1 shadow-lg bg-light p-2 border rounded">
         <div>
           <button
             type="button"
@@ -15,7 +15,7 @@
         <h4>{{taskData.description}}</h4>
         <button
           type="button"
-          class="btn btn-dark py-0"
+          class="btn bg-transparent text-light py-0"
           data-toggle="modal"
           :data-target="'#quickModal' + taskData.id"
         >Comments</button>
@@ -59,5 +59,9 @@ export default {
   background-position: center;
   width: 100vw;
   margin-left: -15px;
+}
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
 }
 </style>

@@ -1,13 +1,15 @@
 <template>
-  <div class="home container-fluid flex-column flex-grow-1 justify-content-center bg-image">
-    <div class="row justify-content-center">
-      <div class="col-6 card rounded bg-primary shadow-lg m-2 p-2">
+  <div class="home d-flex container-fluid flex-column flex-grow-1 justify-content-center bg-image">
+    <div class="row mb-5 align-items-center justify-content-center">
+      <div class="col-6 thicc-border m-2 p-2">
         <h1 class="text-light pt-3">Kanban</h1>
         <hr />
         <h4 class="text-light">PLEASE LOG IN TO CREATE YOUR VERY OWN TRELLO BOARD</h4>
       </div>
     </div>
-    <footer class="bg-dark text-light fixed-bottom p-3">Created By: Harrison Wheeler & Kayden Cooper</footer>
+    <footer class="bg-dark text-light fixed-bottom p-1">
+      <small>Created By: Harrison Wheeler & Kayden Cooper</small>
+    </footer>
   </div>
 </template>
 
@@ -39,5 +41,12 @@ export default {
 }
 .shadow-lg {
   box-shadow: 0 2rem 3rem 1rem rgba(0, 0, 0, 0.175) !important;
+}
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
+}
+.thicc-border {
+  border: white solid 3px;
 }
 </style>

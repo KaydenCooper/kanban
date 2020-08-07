@@ -5,7 +5,7 @@
     @dragover.prevent
     @drop.prevent="moveTask()"
   >
-    <div class="card border rounded p-2 m-2 mb-5">
+    <div class="card rounded bg-light p-2 m-2 mb-5" style="min-height: 15rem;">
       <h3>{{listData.title}}</h3>
       <form @submit.prevent="addTask(listData.id)">
         <div class="input-group mb-3">
@@ -17,7 +17,7 @@
           />
           <div class="input-group-append pb-4">
             <button
-              class="btn btn-dark shadow-lg border rounded"
+              class="btn bg-transparent text-light shadow-lg"
               type="button"
               @click="addTask(listData.id)"
             >Add</button>
@@ -25,7 +25,6 @@
         </div>
       </form>
       <tasks
-        class
         v-for="(task,index) in tasks"
         :taskData="task"
         :key="task.id"
@@ -37,7 +36,7 @@
         class="btn btn-outline-danger m-1 shadow-lg py-1"
         type="button"
         @click="deleteList(listData.id)"
-      >delete</button>
+      >Delete List</button>
     </div>
   </div>
 </template>
@@ -109,4 +108,8 @@ export default {
   width: 100vw;
   margin-left: -15px;
 }
+/* .bg-light {
+  background-color: rgba(255, 255, 255, 0.596) !important;
+  backdrop-filter: blur(5px);
+} */
 </style>
