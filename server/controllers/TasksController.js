@@ -22,21 +22,21 @@ export class TasksController extends BaseController {
 
     async deleteComment(req, res, next) {
         try {
-            res.send({ data: await tasksService.deleteComment(req.params.id, req.params.commentId), message: "deleted comment" })
+            res.send({ data: await tasksService.deleteComment(req.params.id, req.params.commentId), message: "deleted comment" }, req.userInfo.email)
         } catch (error) {
             next(error)
         }
     }
     async editComment(req, res, next) {
         try {
-            res.send({ data: await tasksService.editComment(req.params.id, req.params.commentId, req.body), message: "edited comment" })
+            res.send({ data: await tasksService.editComment(req.params.id, req.params.commentId, req.body), message: "edited comment" }, req.userInfo.email)
         } catch (error) {
             next(error)
         }
     }
     async addComment(req, res, next) {
         try {
-            res.send({ data: await tasksService.addComment(req.params.id, req.body) })
+            res.send({ data: await tasksService.addComment(req.params.id, req.body) }, req.userInfo.email)
         } catch (error) {
             next(error)
         }
