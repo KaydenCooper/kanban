@@ -44,4 +44,21 @@ export default {
 
 
 <style scoped>
+.bg-primary {
+  background-color: #1a1a1a7a !important;
+}
+.shadow-lg {
+  box-shadow: 0 2rem 3rem 1rem rgba(0, 0, 0, 0.175) !important;
+}
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
+}
+
+.cursor {
+  cursor: pointer;
+}
+.close {
+  font-size: 2.3125rem;
+}
 </style>

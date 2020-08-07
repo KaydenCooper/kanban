@@ -3,7 +3,7 @@
     <div class="text-center pb-2">
       <form @submit.prevent="addBoard">
         <div class="input-group bg-transparent shadow-lg p-3">
-          <div class="input-group-prepend ml-5">
+          <div class="input-group-prepend ml-md-5">
             <button class="btn bg-transparent secondary text-light" type="submit">Create Board</button>
           </div>
           <input
@@ -76,7 +76,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .bg-image {
   background-image: url("https://format-com-cld-res.cloudinary.com/image/private/s--7deqf97A--/c_limit,g_center,h_65535,w_2500/fl_keep_iptc.progressive,q_95/v1/90f977a493f4f27c80949284ee718157/bw_crested_butte_mts_no_cropping.jpg");
   background-size: cover;
@@ -85,15 +85,21 @@ export default {
   width: 100vw;
   margin-left: -15px;
 }
+.bg-primary {
+  background-color: #1a1a1a7a !important;
+}
+.shadow-lg {
+  box-shadow: 0 2rem 3rem 1rem rgba(0, 0, 0, 0.175) !important;
+}
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
+}
 
 .cursor {
   cursor: pointer;
 }
 .close {
   font-size: 2.3125rem;
-}
-.bg-transparent {
-  background-color: #1a1a1a7a !important;
-  backdrop-filter: blur(5px);
 }
 </style>

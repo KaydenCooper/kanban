@@ -1,7 +1,7 @@
 <template>
   <div class="home d-flex container-fluid flex-column flex-grow-1 justify-content-center bg-image">
     <div class="row mb-5 align-items-center justify-content-center">
-      <div class="col-6 thicc-border m-2 p-2">
+      <div class="col-11 col-md-6 thicc-border m-2 p-2">
         <h1 class="text-light pt-3">Kanban</h1>
         <hr />
         <h4 class="text-light">PLEASE LOG IN TO CREATE YOUR VERY OWN TRELLO BOARD</h4>

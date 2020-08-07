@@ -1,5 +1,5 @@
 <template>
-  <div class="board flex-column flex-grow-1 row justify-content-center bg-image">
+  <div class="board container-fluid flex-column flex-grow-1 row justify-content-center bg-image">
     <div class="col-12 bg-extra-light p-4">
       <h1 v-if="board.title">
         <u>{{board.title}}</u>
@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .shadow-lg {
   box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.175) !important;
 }
@@ -90,5 +90,12 @@ export default {
 .bg-extra-light {
   background-color: rgba(255, 255, 255, 0.192) !important;
   backdrop-filter: blur(5px);
+}
+.bg-image {
+  background-image: url("https://format-com-cld-res.cloudinary.com/image/private/s--7deqf97A--/c_limit,g_center,h_65535,w_2500/fl_keep_iptc.progressive,q_95/v1/90f977a493f4f27c80949284ee718157/bw_crested_butte_mts_no_cropping.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
 }
 </style>

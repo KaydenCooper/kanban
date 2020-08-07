@@ -68,4 +68,8 @@ export default {
 
 
 <style scoped>
+.bg-transparent {
+  background-color: #1a1a1a7a !important;
+  backdrop-filter: blur(5px);
+}
 </style>
